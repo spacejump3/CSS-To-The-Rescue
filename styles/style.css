@@ -18,9 +18,14 @@ section:first-of-type {
     height: 30em;
     background-color: #fff5;
     overflow: hidden;
+    z-index: -2;
 }
 
 /* initial flash ---------------- */
+article:nth-of-type(1) {
+    z-index: 1000;
+}
+
 article:nth-of-type(1) div:nth-of-type(1) {
     position: absolute;
     width: 100em;
@@ -31,115 +36,22 @@ article:nth-of-type(1) div:nth-of-type(1) {
     border-radius: 100%;
     border: solid white 0.5em;
     opacity: 0;
+    z-index: 3;
 
     background-image: radial-gradient(transparent 30em, white 70em 100em);
 }
 
 article:nth-of-type(1) div:nth-of-type(2) {
     position: absolute;
-    width: 30em;
-    height: 30em;
-    top: calc(50% - 30em / 2);
-    left: calc(50% - 30em / 2);
+    width: 300em;
+    height: 300em;
+    top: calc(50% - 300em / 2);
+    left: calc(50% - 300em / 2);
 
     background-color: white;
     border-radius: 100%;
     opacity: 0;
 }
-
-/* mushroom cloud ---------------- */
-
-article:nth-of-type(2) div {
-    position: absolute;
-    width: 10em;
-    height: 10em;
-    top: calc(50% - 10em / 2);
-    left: calc(50% - 10em / 2);
-    background-color: rgb(137, 137, 137);
-
-    border-radius: 67% 34% 25% 74% / 60% 82% 31% 54%;
-
-    animation: smoke-left-down-1 2s infinite, smoke-pulse-1 5s cubic-bezier(0.62, 0, 0.51, 0.99) infinite alternate;
-}
-
-@keyframes smoke-pulse-1 {
-    0% {
-        transform: scale(0.9);
-    }
-
-    10% {
-        transform: scale(0.8);
-    }
-
-    20% {
-        transform: scale(1);
-    }
-
-    30% {
-        transform: scale(1.1);
-    }
-
-    40% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(0.8);
-    }
-
-    60% {
-        transform: scale(1.2);
-    }
-
-    70% {
-        transform: scale(1);
-    }
-
-    80% {
-        transform: scale(0.9);
-    }
-
-    90% {
-        transform: scale(0.8);
-    }
-
-    100% {
-        transform: scale(1);
-    }
-}
-
-@keyframes smoke-left-down-1 {
-    0% {
-    }
-
-    60% {
-        background-color: yellow;
-    }
-
-    100% {
-        transform: translate(-10em, 10em) rotate(-160deg) scale(0);
-        background-color: yellow;
-    }
-}
-
-/* shaft ---------------- */
-
-/* ground smoke  ---------------- */
-
-/* smoke ring  ---------------- */
-
-/* has properties */
-body:has(fieldset:nth-of-type(3) input:checked) article:nth-of-type(1) div {
-    animation: blast 1s;
-}
-
-body:has(fieldset:nth-of-type(3) input:checked) section:nth-of-type(1) {
-    animation: white-bg-flash 5s;
-}
-
-/* ================== */
-/* === animations === */
-/* ================== */
 
 @keyframes blast {
     0% {
@@ -170,6 +82,339 @@ body:has(fieldset:nth-of-type(3) input:checked) section:nth-of-type(1) {
     100% {
     }
 }
+
+/* mushroom cloud ---------------- */
+
+/* mushroom cloud container */
+article:nth-of-type(2) {
+    position: relative;
+    width: 20em;
+    height: 20em;
+    margin: auto;
+    z-index: 0;
+
+    opacity: 0;
+}
+
+/* general blobs */
+article:nth-of-type(2) div {
+    position: absolute;
+    scale: 0;
+
+    animation: down 3s ease-in-out infinite, scale 3s ease-in-out infinite;
+}
+
+/* blobs 1-5 */
+article:nth-of-type(2) div:nth-of-type(1) {
+    width: 5em;
+    height: 5em;
+    left: 10%;
+
+    border-radius: 67% 34% 25% 74% / 60% 82% 31% 54%;
+}
+
+article:nth-of-type(2) div:nth-of-type(2) {
+    width: 8em;
+    height: 8em;
+    left: 20%;
+
+    border-radius: 67% 34% 25% 74% / 60% 82% 31% 54%;
+
+    animation-delay: 1.9s;
+}
+
+article:nth-of-type(2) div:nth-child(3) {
+    width: 12em;
+    height: 12em;
+    left: 20%;
+
+    border-radius: 67% 34% 25% 74% / 60% 82% 31% 54%;
+
+    animation-delay: 1.4s;
+}
+
+article:nth-of-type(2) div:nth-child(4) {
+    width: 10em;
+    height: 10em;
+    left: 50%;
+
+    border-radius: 67% 34% 25% 74% / 60% 82% 31% 54%;
+
+    animation-delay: 0.3s;
+}
+
+article:nth-of-type(2) div:nth-child(5) {
+    width: 9em;
+    height: 9em;
+    left: 25%;
+
+    border-radius: 67% 34% 25% 74% / 60% 82% 31% 54%;
+
+    animation-delay: 0.5s;
+}
+
+/* blobs 6-10 */
+article:nth-of-type(2) div:nth-child(6) {
+    width: 7em;
+    height: 7em;
+    left: 40%;
+
+    border-radius: 67% 34% 25% 74% / 60% 82% 31% 54%;
+
+    animation-delay: 1.3s;
+}
+
+article:nth-of-type(2) div:nth-child(7) {
+    width: 5em;
+    height: 5em;
+    left: 60%;
+
+    border-radius: 67% 34% 25% 74% / 60% 82% 31% 54%;
+
+    animation-delay: 1s;
+}
+
+article:nth-of-type(2) div:nth-child(8) {
+    width: 6em;
+    height: 6em;
+    left: 30%;
+
+    border-radius: 67% 34% 25% 74% / 60% 82% 31% 54%;
+
+    animation-delay: -.5s;
+}
+
+article:nth-of-type(2) div:nth-child(9) {
+    width: 8em;
+    height: 8em;
+    left: 10%;
+
+    border-radius: 67% 34% 25% 74% / 60% 82% 31% 54%;
+
+    animation-delay: -.2s;
+    /* outline: solid 1em; */
+}
+
+article:nth-of-type(2) div:nth-child(10) {
+    width: 6em;
+    height: 6em;
+    left: 60%;
+
+    border-radius: 67% 34% 25% 74% / 60% 82% 31% 54%;
+
+    animation-delay: -.7s;
+}
+
+@keyframes down {
+    0% {
+        top: 1em;
+    }
+
+    70% {
+        top: 10em;
+    }
+
+    100% {
+        top: 5em;
+    }
+}
+
+@keyframes scale {
+    0% {
+        background-color: rgb(249, 249, 20);
+        box-shadow: 0 0 4em rgb(249, 39, 20);
+    }
+
+    35% {
+        scale: 1.4;
+        background-color: rgb(255, 0, 38);
+    }
+
+    70% {
+        background-color: rgb(51, 56, 75);
+    }
+
+    90% {
+        scale: 0;
+    }
+
+    100% {
+        scale: 0;
+    }
+}
+
+/* shaft ---------------- */
+/* shaft container */
+article:nth-of-type(3) {
+    position: absolute;
+    left: calc(50% - 5em / 2);
+    bottom: 0;
+    width: 5em;
+    height: 20em;
+    margin: auto;
+    z-index: -1;
+
+    opacity: 0;
+}
+
+article:nth-of-type(3) div {
+    background-color: rgb(50, 53, 64);
+}
+
+article:nth-of-type(3) div:nth-of-type(1) {
+    position: absolute;
+    width: 3em;
+    height: 3em;
+    left: 50%;
+    bottom: 0em;
+    border-radius: 50% 50% 67% 42% / 20% 50% 27% 42% ;
+
+    background-color: rgb(82, 85, 98);
+
+    animation: rise 3s ease-out infinite;
+}
+
+article:nth-of-type(3) div:nth-of-type(2) {
+    position: absolute;
+    width: 4em;
+    height: 4em;
+    left: 20%;
+    bottom: 0em;
+    border-radius: 50% 50% 67% 42% / 20% 50% 27% 42% ;
+
+    animation: rise 3s ease-out infinite;
+    animation-delay: .4s;
+}
+
+article:nth-of-type(3) div:nth-of-type(3) {
+    position: absolute;
+    width: 5em;
+    height: 5em;
+    left: 40%;
+    bottom: 0em;
+    border-radius: 50% 50% 67% 42% / 20% 50% 27% 42% ;
+
+    animation: rise 3s ease-out infinite;
+    animation-delay: .8s;
+}
+
+article:nth-of-type(3) div:nth-of-type(4) {
+    position: absolute;
+    width: 5em;
+    height: 5em;
+    left: 30%;
+    bottom: 0em;
+    border-radius: 50% 50% 67% 42% / 20% 50% 27% 42% ;
+
+    background-color: rgb(82, 85, 98);
+
+    animation: rise 3s ease-out infinite;
+    animation-delay: 1.2s;
+}
+
+article:nth-of-type(3) div:nth-of-type(5) {
+    position: absolute;
+    width: 6em;
+    height: 6em;
+    left: 30%;
+    bottom: 0em;
+    border-radius: 50% 50% 67% 42% / 20% 50% 27% 42% ;
+
+    background-color: rgb(38, 39, 43);
+
+    animation: rise 3s ease-out infinite;
+    animation-delay: 1.6s;
+}
+
+article:nth-of-type(3) div:nth-of-type(6) {
+    position: absolute;
+    width: 4em;
+    height: 4em;
+    left: 0;
+    bottom: 0em;
+    border-radius: 50% 50% 67% 42% / 20% 50% 27% 42% ;
+
+    background-color: rgb(38, 39, 43);
+
+    animation: rise 3s ease-out infinite;
+    animation-delay: 2s;
+}
+
+article:nth-of-type(3) div:nth-of-type(7) {
+    position: absolute;
+    width: 4em;
+    height: 4em;
+    left: 50%;
+    bottom: 0em;
+    border-radius: 50% 50% 67% 42% / 20% 50% 27% 42% ;
+
+    background-color: rgb(82, 85, 98);
+
+    animation: rise 3s ease-out infinite;
+    animation-delay: 2.4s;
+}
+
+article:nth-of-type(3) div:nth-of-type(8) {
+    position: absolute;
+    width: 5em;
+    height: 5em;
+    left: 0%;
+    bottom: 0em;
+    border-radius: 50% 50% 67% 42% / 20% 50% 27% 42% ;
+
+    background-color: rgb(38, 39, 43);
+
+    animation: rise 3s ease-out infinite;
+    animation-delay: 2.8s;
+}
+
+@keyframes rise {
+    0% {
+        scale: 0;
+    }
+
+    10% {
+        scale: 1;
+    }
+
+    90% {
+        scale: 1;
+    }
+
+    100% {
+        bottom: 100%;
+        scale: 0;
+    }
+}
+
+
+/* ground smoke  ---------------- */
+
+/* smoke ring  ---------------- */
+
+/* has properties */
+body:has(fieldset:nth-of-type(3) input:checked) article:nth-of-type(1) div:nth-of-type(2) {
+    animation: blast 3s;
+}
+
+body:has(fieldset:nth-of-type(3) input:checked) section:nth-of-type(1) {
+    /* animation: white-bg-flash 5s; */
+    transition-delay: 1s;
+    /* background-color: yellow; */
+    /* background-image: linear-gradient(rgb(63, 8, 63), rgb(255, 0, 72), rgb(245, 198, 96) 20em); */
+}
+
+body:has(fieldset:nth-of-type(3) input:checked) section:nth-of-type(1) article:nth-child(n+2) {
+    transition: 1s;
+    transition-delay: 1s;
+    opacity: 1;
+}
+
+/* hitboxes */
+/* article:nth-child(n+2) {
+    background-color: rgba(0, 0, 255, 0.2);
+    outline: solid blue;
+} */
 
 /* ============================= */
 /* === control panel styling === */
