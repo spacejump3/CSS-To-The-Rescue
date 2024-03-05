@@ -1,0 +1,194 @@
+/* =============== */
+/* === general === */
+/* =============== */
+
+body {
+    background-color: #000;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* ============= */
+/* === bomba === */
+/* ============= */
+
+/* bomb container / window */
+section:first-of-type {
+    position: relative;
+    width: 100%;
+    height: 30em;
+    background-color: #fff5;
+    overflow: hidden;
+}
+
+/* initial flash ---------------- */
+article:nth-of-type(1) div:nth-of-type(1) {
+    position: absolute;
+    width: 100em;
+    height: 100em;
+    top: calc(50% - 100em / 2);
+    left: calc(50% - 100em / 2);
+
+    border-radius: 100%;
+    border: solid white 0.5em;
+    opacity: 0;
+
+    background-image: radial-gradient(transparent 30em, white 70em 100em);
+}
+
+article:nth-of-type(1) div:nth-of-type(2) {
+    position: absolute;
+    width: 30em;
+    height: 30em;
+    top: calc(50% - 30em / 2);
+    left: calc(50% - 30em / 2);
+
+    background-color: white;
+    border-radius: 100%;
+    opacity: 0;
+}
+
+/* mushroom cloud ---------------- */
+
+article:nth-of-type(2) div {
+    position: absolute;
+    width: 10em;
+    height: 10em;
+    top: calc(50% - 10em / 2);
+    left: calc(50% - 10em / 2);
+    background-color: rgb(137, 137, 137);
+
+    border-radius: 67% 34% 25% 74% / 60% 82% 31% 54%;
+
+    animation: smoke-left-down-1 2s infinite, smoke-pulse-1 5s cubic-bezier(0.62, 0, 0.51, 0.99) infinite alternate;
+}
+
+@keyframes smoke-pulse-1 {
+    0% {
+        transform: scale(0.9);
+    }
+
+    10% {
+        transform: scale(0.8);
+    }
+
+    20% {
+        transform: scale(1);
+    }
+
+    30% {
+        transform: scale(1.1);
+    }
+
+    40% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(0.8);
+    }
+
+    60% {
+        transform: scale(1.2);
+    }
+
+    70% {
+        transform: scale(1);
+    }
+
+    80% {
+        transform: scale(0.9);
+    }
+
+    90% {
+        transform: scale(0.8);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes smoke-left-down-1 {
+    0% {
+    }
+
+    60% {
+        background-color: yellow;
+    }
+
+    100% {
+        transform: translate(-10em, 10em) rotate(-160deg) scale(0);
+        background-color: yellow;
+    }
+}
+
+/* shaft ---------------- */
+
+/* ground smoke  ---------------- */
+
+/* smoke ring  ---------------- */
+
+/* has properties */
+body:has(fieldset:nth-of-type(3) input:checked) article:nth-of-type(1) div {
+    animation: blast 1s;
+}
+
+body:has(fieldset:nth-of-type(3) input:checked) section:nth-of-type(1) {
+    animation: white-bg-flash 5s;
+}
+
+/* ================== */
+/* === animations === */
+/* ================== */
+
+@keyframes blast {
+    0% {
+        transform: scale(0);
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    80% {
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(1);
+    }
+}
+
+@keyframes white-bg-flash {
+    0% {
+    }
+
+    20% {
+        background-color: #fff;
+    }
+
+    100% {
+    }
+}
+
+/* ============================= */
+/* === control panel styling === */
+/* ============================= */
+
+section:nth-of-type(2) {
+    color: rgb(31, 236, 31);
+}
+
+legend {
+    font-weight: 900;
+}
+
+label:hover {
+    background-color: rgba(0, 255, 0, 0.3);
+}
+
+fieldset {
+    background-color: rgb(44, 44, 44);
+    border: solid 2px;
+    border-radius: 0.3em;
+}

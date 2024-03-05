@@ -22,3 +22,6 @@ The features I want to add are:
 ![Nuke schets-01](https://github.com/spacejump3/CSS-To-The-Rescue/assets/112871518/aa469821-f5ac-4662-95e9-2b91e3b3361b)
 
 Above is my first sketch I made and I tried to explain which part should be what element. I might have to change the button for an audio tag instead. Or atleast let the audio tag play somehow if it's checked? I need to know if this is possible!
+
+## Week 2
+IK HEB DEZE GEVONDEN ECHT HANDIG DENK IK!!!! https://csscrafter.com/css-particle-effects/
