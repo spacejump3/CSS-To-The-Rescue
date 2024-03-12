@@ -8,6 +8,85 @@ body {
     font-family: 'Courier New', Courier, monospace;
 }
 
+/* declare number and animation length */
+:root {
+    --n: 30;
+    --animation-length: 4s;
+}
+
+/* give index to each and every child */
+:nth-of-type(1) { --i: 1; }
+:nth-of-type(2) { --i: 2; }
+:nth-of-type(3) { --i: 3; }
+:nth-of-type(4) { --i: 4; }
+:nth-of-type(5) { --i: 5; }
+:nth-of-type(6) { --i: 6; }
+:nth-of-type(7) { --i: 7; }
+:nth-of-type(8) { --i: 8; }
+:nth-of-type(9) { --i: 9; }
+:nth-of-type(10) { --i: 10; }
+:nth-of-type(11) { --i: 11; }
+:nth-of-type(12) { --i: 12; }
+:nth-of-type(13) { --i: 13; }
+:nth-of-type(14) { --i: 14; }
+:nth-of-type(15) { --i: 15; }
+:nth-of-type(16) { --i: 16; }
+:nth-of-type(17) { --i: 17; }
+:nth-of-type(18) { --i: 18; }
+:nth-of-type(19) { --i: 19; }
+:nth-of-type(20) { --i: 20; }
+:nth-of-type(21) { --i: 21; }
+:nth-of-type(22) { --i: 22; }
+:nth-of-type(23) { --i: 23; }
+:nth-of-type(24) { --i: 24; }
+:nth-of-type(25) { --i: 25; }
+:nth-of-type(26) { --i: 26; }
+:nth-of-type(27) { --i: 27; }
+:nth-of-type(28) { --i: 28; }
+:nth-of-type(29) { --i: 29; }
+:nth-of-type(30) { --i: 30; }
+
+/* ============= */
+/* === title === */
+/* ============= */
+
+h1 {
+    position: fixed;
+    color: white;
+    width: 100%;
+    text-align: center;
+    top: 20%;
+    font-size: 6em;
+    text-shadow: .1em .1em 0 black;
+
+    animation: intro 5s;
+    visibility: hidden;
+    opacity: 0;
+}
+
+@keyframes intro {
+    0% {
+        visibility: visible;
+        color: yellow;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    90% {
+        letter-spacing: .5em;
+        opacity: 0;
+        color: red;
+    }
+
+    100% {
+        opacity: 0;
+        visibility: hidden;
+        letter-spacing: .5em;
+    }
+}
+
 /* ============= */
 /* === bomba === */
 /* ============= */
@@ -23,25 +102,6 @@ section:first-of-type {
 }
 
 /* initial flash ---------------- */
-article:nth-of-type(1) {
-    z-index: 1000;
-}
-
-article:nth-of-type(1) div:nth-of-type(1) {
-    position: absolute;
-    width: 100em;
-    height: 100em;
-    top: calc(50% - 100em / 2);
-    left: calc(50% - 100em / 2);
-
-    border-radius: 100%;
-    border: solid white 0.5em;
-    opacity: 0;
-    z-index: 3;
-
-    background-image: radial-gradient(transparent 30em, white 70em 100em);
-}
-
 article:nth-of-type(1) div:nth-of-type(2) {
     position: absolute;
     width: 300em;
@@ -93,110 +153,11 @@ article:nth-of-type(2) {
     height: 20em;
     margin: auto;
     z-index: 0;
-    top: -3em;
 
     opacity: 0;
 }
 
 /* general blobs */
-:root {
-    --n-shaft: 20;
-    --n-blob: 30;
-
-    --animation-length: 4s;
-}
-
-article:nth-of-type(2) div:nth-of-type(1) {
-    --i-blob: 1;
-}
-article:nth-of-type(2) div:nth-of-type(2) {
-    --i-blob: 2;
-}
-article:nth-of-type(2) div:nth-of-type(3) {
-    --i-blob: 3;
-}
-article:nth-of-type(2) div:nth-of-type(4) {
-    --i-blob: 4;
-}
-article:nth-of-type(2) div:nth-of-type(5) {
-    --i-blob: 5;
-}
-article:nth-of-type(2) div:nth-of-type(6) {
-    --i-blob: 6;
-}
-article:nth-of-type(2) div:nth-of-type(7) {
-    --i-blob: 7;
-}
-article:nth-of-type(2) div:nth-of-type(8) {
-    --i-blob: 8;
-}
-article:nth-of-type(2) div:nth-of-type(9) {
-    --i-blob: 9;
-}
-article:nth-of-type(2) div:nth-of-type(10) {
-    --i-blob: 10;
-}
-article:nth-of-type(2) div:nth-of-type(11) {
-    --i-blob: 11;
-}
-article:nth-of-type(2) div:nth-of-type(12) {
-    --i-blob: 12;
-}
-article:nth-of-type(2) div:nth-of-type(13) {
-    --i-blob: 13;
-}
-article:nth-of-type(2) div:nth-of-type(14) {
-    --i-blob: 14;
-}
-article:nth-of-type(2) div:nth-of-type(15) {
-    --i-blob: 15;
-}
-article:nth-of-type(2) div:nth-of-type(16) {
-    --i-blob: 16;
-}
-article:nth-of-type(2) div:nth-of-type(17) {
-    --i-blob: 17;
-}
-article:nth-of-type(2) div:nth-of-type(18) {
-    --i-blob: 18;
-}
-article:nth-of-type(2) div:nth-of-type(19) {
-    --i-blob: 19;
-}
-article:nth-of-type(2) div:nth-of-type(20) {
-    --i-blob: 20;
-}
-article:nth-of-type(2) div:nth-of-type(21) {
-    --i-blob: 21;
-}
-article:nth-of-type(2) div:nth-of-type(22) {
-    --i-blob: 22;
-}
-article:nth-of-type(2) div:nth-of-type(23) {
-    --i-blob: 23;
-}
-article:nth-of-type(2) div:nth-of-type(24) {
-    --i-blob: 24;
-}
-article:nth-of-type(2) div:nth-of-type(25) {
-    --i-blob: 25;
-}
-article:nth-of-type(2) div:nth-of-type(26) {
-    --i-blob: 26;
-}
-article:nth-of-type(2) div:nth-of-type(27) {
-    --i-blob: 27;
-}
-article:nth-of-type(2) div:nth-of-type(28) {
-    --i-blob: 28;
-}
-article:nth-of-type(2) div:nth-of-type(29) {
-    --i-blob: 29;
-}
-article:nth-of-type(2) div:nth-of-type(30) {
-    --i-blob: 30;
-}
-
 article:nth-of-type(2) div {
     position: absolute;
     scale: 0;
@@ -205,7 +166,7 @@ article:nth-of-type(2) div {
     border-radius: var(--br);
     left: calc(30% * var(--v1) * var(--v2));
 
-    animation: down var(--animation-length) calc(var(--animation-length) * -1 / var(--n-blob) * var(--i-blob)) infinite, scale var(--animation-length) calc(var(--animation-length) * -1 / var(--n-blob) * var(--i-blob)) ease-in-out infinite;
+    animation: mushcloud var(--animation-length) calc(var(--animation-length) * -1 / var(--n) * var(--i)) ease-in-out infinite;
 }
 
 article:nth-of-type(2) div:nth-of-type(2n) {
@@ -236,24 +197,12 @@ article:nth-of-type(2) div:nth-of-type(7n) {
     --br: 49% 51% 60% 40% / 50% 53% 47% 50%;
 }
 
-@keyframes down {
-    0% {
-        top: 1em;
-    }
-
-    70% {
-        top: 10em;
-    }
-
-    100% {
-        top: 5em;
-    }
-}
-
-@keyframes scale {
+@keyframes mushcloud {
     0% {
         background-color: rgb(249, 249, 20);
         box-shadow: 0 0 4em rgb(249, 39, 20);
+
+        top: 1em;
     }
 
     35% {
@@ -263,6 +212,8 @@ article:nth-of-type(2) div:nth-of-type(7n) {
 
     70% {
         background-color: rgb(51, 56, 75);
+
+        top: 10em;
     }
 
     90% {
@@ -271,6 +222,8 @@ article:nth-of-type(2) div:nth-of-type(7n) {
 
     100% {
         scale: 0;
+
+        top: 5em;
     }
 }
 
@@ -288,126 +241,6 @@ article:nth-of-type(3) {
     opacity: 0;
 }
 
-article:nth-of-type(3) div:nth-of-type(1) {
-    --i-shaft: 1;
-}
-
-article:nth-of-type(3) div:nth-of-type(2) {
-    --i-shaft: 2;
-}
-
-article:nth-of-type(3) div:nth-of-type(3) {
-    --i-shaft: 3;
-}
-
-article:nth-of-type(3) div:nth-of-type(4) {
-    --i-shaft: 4;
-}
-
-article:nth-of-type(3) div:nth-of-type(5) {
-    --i-shaft: 5;
-}
-
-article:nth-of-type(3) div:nth-of-type(6) {
-    --i-shaft: 6;
-}
-
-article:nth-of-type(3) div:nth-of-type(7) {
-    --i-shaft: 7;
-}
-
-article:nth-of-type(3) div:nth-of-type(8) {
-    --i-shaft: 8;
-}
-
-article:nth-of-type(3) div:nth-of-type(9) {
-    --i-shaft: 9;
-}
-
-article:nth-of-type(3) div:nth-of-type(10) {
-    --i-shaft: 10;
-}
-
-article:nth-of-type(3) div:nth-of-type(11) {
-    --i-shaft: 11;
-}
-
-article:nth-of-type(3) div:nth-of-type(12) {
-    --i-shaft: 12;
-}
-
-article:nth-of-type(3) div:nth-of-type(13) {
-    --i-shaft: 13;
-}
-
-article:nth-of-type(3) div:nth-of-type(14) {
-    --i-shaft: 14;
-}
-
-article:nth-of-type(3) div:nth-of-type(15) {
-    --i-shaft: 15;
-}
-
-article:nth-of-type(3) div:nth-of-type(16) {
-    --i-shaft: 16;
-}
-
-article:nth-of-type(3) div:nth-of-type(17) {
-    --i-shaft: 17;
-}
-
-article:nth-of-type(3) div:nth-of-type(18) {
-    --i-shaft: 18;
-}
-
-article:nth-of-type(3) div:nth-of-type(19) {
-    --i-shaft: 19;
-}
-
-article:nth-of-type(3) div:nth-of-type(20) {
-    --i-shaft: 20;
-}
-
-article:nth-of-type(3) div:nth-of-type(21) {
-    --i-shaft: 21;
-}
-
-article:nth-of-type(3) div:nth-of-type(22) {
-    --i-shaft: 22;
-}
-
-article:nth-of-type(3) div:nth-of-type(23) {
-    --i-shaft: 23;
-}
-
-article:nth-of-type(3) div:nth-of-type(24) {
-    --i-shaft: 24;
-}
-
-article:nth-of-type(3) div:nth-of-type(25) {
-    --i-shaft: 25;
-}
-
-article:nth-of-type(3) div:nth-of-type(26) {
-    --i-shaft: 26;
-}
-
-article:nth-of-type(3) div:nth-of-type(27) {
-    --i-shaft: 27;
-}
-
-article:nth-of-type(3) div:nth-of-type(28) {
-    --i-shaft: 28;
-}
-
-article:nth-of-type(3) div:nth-of-type(29) {
-    --i-shaft: 29;
-}
-
-article:nth-of-type(3) div:nth-of-type(30) {
-    --i-shaft: 30;
-}
-
 article:nth-of-type(3) div {
     background-color: rgb(50, 53, 64);
     box-shadow: 0 0 5em #fff2;
@@ -417,7 +250,7 @@ article:nth-of-type(3) div {
     border-radius: 10em;
     left: calc(30% / var(--v2) * var(--v3));
     bottom: 0;
-    animation: rise var(--animation-length) calc(var(--animation-length) * -1 / var(--n-shaft) * var(--i-shaft)) ease-out infinite;
+    animation: rise var(--animation-length) calc(var(--animation-length) * -1 / var(--n) * var(--i)) ease-out infinite;
 }
 
 article:nth-of-type(3) div:nth-of-type(2n) {
@@ -471,23 +304,71 @@ article:nth-of-type(3) div:nth-of-type(7n) {
 
 /* smoke ring  ---------------- */
 
-/* has properties */
-body:has(fieldset:nth-of-type(3) input:checked) article:nth-of-type(1) div:nth-of-type(2) {
-    animation: blast 3s;
+/* clouds  ---------------- */
+article:nth-of-type(4) div {
+    position: absolute;
+    top: calc(1em * var(--v1));
+    left: calc(30em * var(--v2));
+    width: calc(10em * var(--v3));
+    height: 7em;
+    border-radius: 100em;
+    background-color: blue;
+    opacity: 0;
+
+    /* animation: cloudscaling 20s calc(20s * -1 / var(--n) * var(--i)) infinite alternate; */
 }
 
-body:has(fieldset:nth-of-type(3) input:checked) section:nth-of-type(1) {
-    /* animation: white-bg-flash 5s; */
-    transition-delay: 1s;
-    /* background-color: yellow; */
-    /* background-image: linear-gradient(rgb(63, 8, 63), rgb(255, 0, 72), rgb(245, 198, 96) 20em); */
+@keyframes cloudscaling {
+    0% {
+        scale: .6;
+        left: calc(25em * var(--v1));
+    }
+    50% {
+        scale: 1;
+    }
+
+    100% {
+        scale: .6;
+        left: calc(25em * var(--v3));
+    }
 }
 
-body:has(fieldset:nth-of-type(3) input:checked) section:nth-of-type(1) article:nth-child(n + 2) {
-    transition: 1s;
-    transition-delay: 1s;
-    opacity: 1;
+article:nth-of-type(4) div:nth-of-type(2n) {
+    --v1: 1.8;
+    --v2: 0.5;
+    --v3: 1.6;
+    background-color: rgb(87, 70, 99);
 }
+
+article:nth-of-type(4) div:nth-of-type(3n) {
+    --v1: 1.2;
+    --v2: 0.6;
+    --v3: 1.1;
+    background-color: #2c2345;
+}
+
+article:nth-of-type(4) div:nth-of-type(5n) {
+    --v1: 0.2;
+    --v2: 1.7;
+    --v3: 1.3;
+    background-color: #887da7;
+}
+
+article:nth-of-type(4) div:nth-of-type(7n) {
+    --v1: 0.6;
+    --v2: 1.2;
+    --v3: 1.9;
+    background-color: rgb(104, 87, 116);
+}
+
+article:nth-of-type(4) div:nth-of-type(11n) {
+    --v1: 0.9;
+    --v2: 1.9;
+    --v3: 1.1;
+    background-color: rgb(137, 67, 187);
+}
+
+
 
 /* hitboxes */
 /* article:nth-child(n + 2) {
@@ -504,14 +385,14 @@ form {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    background-color: rgb(176, 176, 176);
+    background-color: #D2D9EA;
     border-radius: 2em;
     height: 20em;
 }
 
-input {
+/* input {
     opacity: 0;
-}
+} */
 
 fieldset {
     border: none;
@@ -525,69 +406,164 @@ label {
     height: 5em;
     display: block;
     cursor: pointer;
-    background-color: #fff2;
     border-radius: 100%;
 }
 
-fieldset:nth-of-type(3) label {
-    background-color: #ee2a94;
-    box-shadow: 
-        inset 0 -.7em 0 #FC71C4,
-        inset 0 .7em 0 #D0248C
-        
+fieldset label {
+    transition: .2s;
+    transform-origin: bottom;
+    padding-bottom: 2.5em;
 }
 
-fieldset:nth-of-type(3) label::before {
-    content: "Kaboom";
-    font-weight: 900;
+/* button styling */
+fieldset label::before {
+    content: '';
     position: absolute;
-    text-align: center;
-    top: 9em;
-    left: 25%;
-} 
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5em;
+    border-radius: 100%;
+    
+    background-color: var(--btn-top, #ee2a94);
+    box-shadow: 
+        inset 0 -0.7em 0 var(--btn-top-highlight, #fc71c4), 
+        inset 0 0.7em 0 var(--btn-top-shadow, #d0248c);
 
-fieldset:nth-of-type(3) label::after {
-    content: "";
+}
+
+fieldset label::after {
+    content: '';
     position: absolute;
-    top: 50%;
+    bottom: 0;
     display: block;
     width: 100%;
     height: 5em;
     border-radius: 0 0 50% 50%;
-    background-color: #A81665;
+    background-color: var(--btn-bottom, #a81665);
 
     box-shadow: 
-        inset -.4em -.4em 0 #370624,
-        inset -3em 0 0 #711641,
-        0 .5em 0 #370624;
+        inset -0.4em -0.4em 0 var(--btn-bottom-darkshadow, #370624), 
+        inset -3em 0 0 var(--btn-bottom-shadow, #711641), 
+        0 0.5em 0 var(--btn-bottom-darkshadow, #370624);
 
     z-index: -1;
 }
 
-fieldset:nth-of-type(3) label:hover {
-    background-color: rgb(255, 0, 128);
+/* nuke control styling */
+fieldset:nth-of-type(1) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #fff2;
 }
 
+fieldset:nth-of-type(1) label {
+    transform: scale(.5);
+    --btn-top: #606060;
+    --btn-top-highlight: #989898;
+    --btn-top-shadow: #474747;
+
+    --btn-bottom: #666666;
+    --btn-bottom-shadow: #474747;
+    --btn-bottom-darkshadow: #292929;
+}
+
+fieldset label:hover {
+    box-shadow: 0 0 .4em 3em #0001;
+}
+
+body:has(fieldset:nth-of-type(1) label:nth-of-type(1) input:checked) fieldset:nth-of-type(1) label:nth-of-type(1),
+body:has(fieldset:nth-of-type(1) label:nth-of-type(2) input:checked) fieldset:nth-of-type(1) label:nth-of-type(2),
+body:has(fieldset:nth-of-type(1) label:nth-of-type(3) input:checked) fieldset:nth-of-type(1) label:nth-of-type(3) {
+    transform: scale(.5, .4);
+    --btn-top: rgb(46, 171, 0);
+    --btn-top-highlight: rgb(127, 232, 117);
+    --btn-top-shadow: rgb(12, 80, 13);
+
+    --btn-bottom: rgb(16, 148, 20);
+    --btn-bottom-shadow: rgb(0, 97, 6);
+    --btn-bottom-darkshadow: rgb(0, 51, 4);
+}
+
+/* distance selector styling */
+fieldset:nth-of-type(2) label,
+fieldset:nth-of-type(2) label::before,
+fieldset:nth-of-type(2) label::after {
+    all: unset;
+}
+
+fieldset:nth-of-type(2) label {
+    display: block;
+}
+
+section:nth-of-type(1) {
+    transition: 1s;
+}
+
+body:has(fieldset:nth-of-type(2) label:nth-of-type(2) input:checked) section:nth-of-type(1) {
+    scale: .5;
+}
+
+body:has(fieldset:nth-of-type(2) label:nth-of-type(3) input:checked) section:nth-of-type(1) {
+    scale: .25;
+}
+
+/* fieldset:nth-of-type(2) label:nth-of-type(2) input:checked {
+    background: green;
+    outline: solid 1em;
+} */
+
+/* detonator styling */
 body:has(fieldset:nth-of-type(3) input:checked) fieldset:nth-of-type(3) label {
-    background-color: blue;
+    transform: scaleY(.8);
+    --btn-top: rgb(171, 0, 0);
+    --btn-top-highlight: rgb(232, 117, 117);
+    --btn-top-shadow: rgb(80, 12, 12);
+
+    --btn-bottom: rgb(148, 16, 16);
+    --btn-bottom-shadow: rgb(97, 0, 0);
+    --btn-bottom-darkshadow: rgb(51, 0, 0);
 }
 
+/* initial flash */
+body:has(fieldset:nth-of-type(3) input:checked):has(fieldset:nth-of-type(1) label:nth-of-type(1) input:checked) article:nth-of-type(1) div:nth-of-type(2) {
+    animation: blast 3s;
+}
+
+/* clouds */
+body:has(fieldset:nth-of-type(3) input:checked):has(fieldset:nth-of-type(1) label:nth-of-type(2) input:checked) article:nth-of-type(4) div {
+    animation: cloudscaling 20s calc(20s * -1 / var(--n) * var(--i)) infinite alternate;
+    opacity: 1;
+    transition: 3s;
+    transition-delay: 3s;
+
+}
+
+/* if kaboom button is pressed, you can't press any other buttons */
+body:has(fieldset:nth-of-type(3) input:checked) fieldset:not(:nth-of-type(3)) {
+    pointer-events: none;
+}
+
+body:has(fieldset:nth-of-type(3) input:checked) section:nth-of-type(1) article:nth-child(n + 2) {
+    transition: 1s;
+    transition-delay: 1s;
+    opacity: 1;
+}
 
 section:nth-of-type(2) {
     color: rgb(0, 0, 0);
-    background-color: rgb(139, 139, 139);
-    border-radius: 2em 2em 0 0 ;
+    background-color: #ACB3C6;
+    border-radius: 2em 2em 0 0;
     max-width: 70em;
     height: 30em;
     margin: 1em auto 0 auto;
-
-    
 }
 
 legend {
     font-weight: 900;
 }
 
-label:hover {
-    background-color: rgba(0, 255, 0, 0.3);
-}
+/* section article {
+    filter: hue-rotate(-160deg);
+} */
