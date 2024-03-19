@@ -1,23 +1,28 @@
 # CSS-To-The-Rescue
+
 I will be making a an atomic explosion...
 
 ## Week 1
+
 In the first week we were able to choose our theme's. I had many idea's for 3 of the themes, but then I came up with the idea of creating a nuclear explosion in CSS with the fireworks theme. After I got approval of Sanne to do it, I started thinking about what I am gonna create.
 
 ### First thoughts
-So obviously I need SOME sort of particle emmitter style setup to create this. I can't literally make a particle emitter which is randomized, but I should be able to make something that LOOKS randomized. Since you can infinitely loop animations in CSS, I can contiously 'spawn' elements. So I definitely have to think about that. I also want the user to be able to slightly customize the explosion by being able to choose to add a shockwave, radiation cloud and initial flash. I specifically want the user to be able to turn that off or on because if anyone with epilepsy stumbles across this project, I don't think they'd appreciate the bright lights... 
+
+So obviously I need SOME sort of particle emmitter style setup to create this. I can't literally make a particle emitter which is randomized, but I should be able to make something that LOOKS randomized. Since you can infinitely loop animations in CSS, I can contiously 'spawn' elements. So I definitely have to think about that. I also want the user to be able to slightly customize the explosion by being able to choose to add a shockwave, radiation cloud and initial flash. I specifically want the user to be able to turn that off or on because if anyone with epilepsy stumbles across this project, I don't think they'd appreciate the bright lights...
 
 I initially wanted to add a sound for when the shockwave reaches you, but I'm not sure if it's possible? But as I'm writing this I thought of an idea: is it possible to create an audio tag which when you press the button starts the audio. The audio however is around 30 seconds of silence but at the end has a shockwave sound. In my head this sorta makes sense but I'd have to test this out. In any case, you are also able to select the distance and depending on where you are, the shockwave will reach you faster or slower. If I have extra time I might want to add a close-up slowmotion option which would show the <a href="https://www.youtube.com/watch?v=A9S3MUxH680">rope trick effect</a>. Honestly I think it looks insane and would love to recreate this in CSS, but I think this could even be a project of it's own so for now it's in the backburner...
 
 I also want to add atomic goggles which you HAVE to wear because it will render you blind otherwise. As a safety, if you have flashing lights turned off, you won't be able to press the button at all. If you have flashing lights turn on you will be able to press the button to which you will only see a bright flash. Now that I'm typing this I am doubting how I am supposed to do this system without JavaScript, but I'll have to think about that or think of something else.
 
 ### Features and sketch
+
 The features I want to add are:
-- Light / Dark mode (daytime or nighttime)
-- Shockwave / radiation cloud / initial flash toggle
-- Distance selector
-- Atomic goggles
-- Choose color of nuke? Maybe a fun option to add
+
+-   Light / Dark mode (daytime or nighttime)
+-   Shockwave / radiation cloud / initial flash toggle
+-   Distance selector
+-   Atomic goggles
+-   Choose color of nuke? Maybe a fun option to add
 
 ![Nuke schets-01](https://github.com/spacejump3/CSS-To-The-Rescue/assets/112871518/aa469821-f5ac-4662-95e9-2b91e3b3361b)
 
@@ -26,13 +31,15 @@ Above is my first sketch I made and I tried to explain which part should be what
 ## Week 2
 
 ### Struggling
-So I started initially by making the control panel. I just used a form and some fieldset to create a rough control panel where I can detonate my bomb. Then, I created a very simple animation of the initial blast. It was basically a simple animation of a circle expanding very quickly. I used a radial gradient to create a motion blur effect and it looked pretty nice. Using ```:has()``` I was able to link the detonate button with the explosion so that the button triggers the blast. 
 
-So that's where it ended for day one.. And day 2 mostly. In day 2 I really wanted to start with the actual mushroom cloud but I couldn't get started. I had already attended the randomness workshop but I didn't feel like I could add it to my project. I tried to make a simple animation of a single fireball increasing in size and then decreasing while going down, but I just couldn't make it smooth. In After Effects I can do this in 3 seconds with a blindfold, but in CSS I was just struggling. I couldn't work out how to actually make it smooth in CSS since keyframes work just slightly different in CSS, but it's significant enough that I couldn't make it work. When I tried to change the size while the position was going down somehow It cancelled out the position keyframes which just made me MAD. I had to add every keyframe individually, but then the keyframes would add easing to each keyframe. I tried making it smooth using ```cubic-bezier``` but that was just more frustration. It's nearly impossible to smoothly transition between keyframes using ```cubic-bezier```. I was extremely frustrated so I went home early since I couldn't get anything done.
+So I started initially by making the control panel. I just used a form and some fieldset to create a rough control panel where I can detonate my bomb. Then, I created a very simple animation of the initial blast. It was basically a simple animation of a circle expanding very quickly. I used a radial gradient to create a motion blur effect and it looked pretty nice. Using `:has()` I was able to link the detonate button with the explosion so that the button triggers the blast.
+
+So that's where it ended for day one.. And day 2 mostly. In day 2 I really wanted to start with the actual mushroom cloud but I couldn't get started. I had already attended the randomness workshop but I didn't feel like I could add it to my project. I tried to make a simple animation of a single fireball increasing in size and then decreasing while going down, but I just couldn't make it smooth. In After Effects I can do this in 3 seconds with a blindfold, but in CSS I was just struggling. I couldn't work out how to actually make it smooth in CSS since keyframes work just slightly different in CSS, but it's significant enough that I couldn't make it work. When I tried to change the size while the position was going down somehow It cancelled out the position keyframes which just made me MAD. I had to add every keyframe individually, but then the keyframes would add easing to each keyframe. I tried making it smooth using `cubic-bezier` but that was just more frustration. It's nearly impossible to smoothly transition between keyframes using `cubic-bezier`. I was extremely frustrated so I went home early since I couldn't get anything done.
 
 When I got home, I finally made progress...
 
 ### I am become death...
+
 So when I got home, after a small break I looked up HOW to keyframe two properties (position and scale) and make it make smooth. Turns out, just use two animations...... Literally make one animation move it down, and use the other to scale it. That's it. Well now that I had a smooth animation, I could add more smoke and fire! I just made a bunch of div's and then individually changed the width/height and position. This made it look very random. I used the same technique for the 'shaft'. At this point the nuke started forming:
 
 ![nuke](https://github.com/spacejump3/CSS-To-The-Rescue/assets/112871518/4de6c556-22ec-4b28-b57d-127cd7f009ac)
@@ -125,7 +132,7 @@ article:nth-of-type(2) div:nth-child(8) {
 
     border-radius: 67% 34% 25% 74% / 60% 82% 31% 54%;
 
-    animation-delay: -.5s;
+    animation-delay: -0.5s;
 }
 
 article:nth-of-type(2) div:nth-child(9) {
@@ -135,7 +142,7 @@ article:nth-of-type(2) div:nth-child(9) {
 
     border-radius: 67% 34% 25% 74% / 60% 82% 31% 54%;
 
-    animation-delay: -.2s;
+    animation-delay: -0.2s;
     /* outline: solid 1em; */
 }
 
@@ -146,12 +153,174 @@ article:nth-of-type(2) div:nth-child(10) {
 
     border-radius: 67% 34% 25% 74% / 60% 82% 31% 54%;
 
-    animation-delay: -.7s;
+    animation-delay: -0.7s;
 }
 ```
 
 ...So yeah, literally individually changing each div. I will change this and make this MUCH cleaner using probably the randomization technique which I learned from Nils Binder.
 
+I have also found this website which has some useful particle effects I might use: https://csscrafter.com/css-particle-effects/
 
+## Week 3
 
-IK HEB DEZE GEVONDEN ECHT HANDIG DENK IK!!!! https://csscrafter.com/css-particle-effects/
+### Better animation setup
+
+So far I have a rough nuke animation which is nice, but I would like to add more detail and make it more pronounced. One of the first things I did was use a technique where I could add a delay to each of the blobs instead of adding each delay manually. It is a bit complicated, but it looks something like this:
+
+```css
+/* declare number and animation length */
+:root {
+    --n: 30;
+    --animation-length: 4s;
+}
+
+/* give index to each and every child */
+:nth-of-type(1) {
+    --i: 1;
+}
+:nth-of-type(2) {
+    --i: 2;
+}
+:nth-of-type(3) {
+    --i: 3;
+}
+:nth-of-type(4) {
+    --i: 4;
+}
+:nth-of-type(5) {
+    --i: 5;
+}
+
+/* etc., etc... */
+```
+
+So with this setup, I can select every child of something and give it an index. In the root I declare a variable which has the total amount of selected children. I will use these selectors later to add a delay to the animation:
+
+```css
+div {
+    animation: mushcloud var(--animation-length) calc(var(--animation-length) * -1 / var(--n) * var(--i)) ease-in-out infinite;
+}
+```
+
+So I'm not gonna lie and say that I'm not entirely sure how this formula works, but the important thing is that using this method I can add a set delay to which each child element will do one after the other. So instead of setting a delay for each element like: .2s, .4s, .6s, .8s etc. I can just say I want the delay to be .2s and have them do the animation one after the other.
+
+With this technique I was able to create the mushroom cloud effect in a much better way. Not only is it cleaner to do it like this, I can also now re-use these `--i` and `--n` variables in other animations, like the shaft rise animation.
+
+I can definitely thank Sanne for teaching me this technique because it is extremely useful and I will most likely keep using this in future projects.
+
+### Randomization
+
+I attended a workshop last week with Nils Binder which was about randomization. I wasn't able to apply this technique to my project yet, because I didn't know if it was possible to do this with position. So it turns out it is, I just had to think a bit more clever about it:
+
+```css
+div {
+    position: absolute;
+    scale: 0;
+    width: calc(3.5em * var(--v3) * var(--v1));
+    aspect-ratio: 1;
+    border-radius: var(--br);
+    left: calc(30% * var(--v1) * var(--v2));
+
+    animation: mushcloud var(--animation-length) calc(var(--animation-length) * -1 / var(--n) * var(--i)) ease-in-out infinite;
+}
+
+div:nth-of-type(2n) {
+    --v1: 1.8;
+    --v2: 0.5;
+    --v3: 1.6;
+    --br: 47% 53% 31% 69% / 45% 37% 63% 55%;
+}
+
+div:nth-of-type(3n) {
+    --v1: 1.25;
+    --v2: 0.43;
+    --v3: 1.87;
+    --br: 67% 34% 25% 74% / 60% 82% 31% 54%;
+}
+
+div:nth-of-type(5n) {
+    --v1: 1.35;
+    --v2: 1.41;
+    --v3: 0.42;
+    --br: 49% 51% 60% 40% / 50% 53% 47% 50%;
+}
+
+div:nth-of-type(7n) {
+    --v1: 1.75;
+    --v2: 1.21;
+    --v3: 1.32;
+    --br: 49% 51% 60% 40% / 50% 53% 47% 50%;
+}
+```
+
+So, what's happening here is that I use a bunch of selector to which I add a bunch of variables with each different numbers. Then, using `left` on the general div I can add a `calc()` to multiply or divide these different variables with each other. I also do this for the width and border radius. The randomness in combination with the delay technique results in an animation which looks really randomized and organic.
+
+![nuke](./readme-media/image.png)
+
+### Form styling
+
+I wanted to add some styling to the buttons in the form to make it look more like a control panel. I wanted to do this to obviously make this a bit more immersive. The main thing I wanted to do is make some 'realistic' buttons that you can push. This is how I did it:
+
+```css
+/* button styling */
+fieldset:nth-of-type(-n + 2) label::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5em;
+    border-radius: 100%;
+    /* outline: solid 1em blue; */
+
+    background-color: var(--btn-top, #ee2a94);
+    box-shadow: inset 0 -0.7em 0 var(--btn-top-highlight, #fc71c4), inset 0 0.7em 0 var(--btn-top-shadow, #d0248c);
+}
+
+fieldset:nth-of-type(-n + 2) label::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    display: block;
+    width: 100%;
+    height: 5em;
+    border-radius: 0 0 50% 50%;
+    background-color: var(--btn-bottom, #a81665);
+
+    box-shadow: inset -0.4em -0.4em 0 var(--btn-bottom-darkshadow, #370624), inset -3em 0 0 var(--btn-bottom-shadow, #711641), 0 0.5em 0 var(--btn-bottom-darkshadow, #370624);
+
+    z-index: -1;
+}
+```
+
+Because I wanted a 3D look, I used a `::before` and an `::after`. Using a bunch of box-shadows I was able to mimick a semi 3D style. I added a simple hover and checked state which makes it looks like the button is actually being pressed.
+
+I wanted the 3 buttons on the left to each do something. One will add a flash, the second will add clouds and the third will activate rainbow mode. But I only want it to apply it to the nuke when the detonator button is pressed. I couldn't figure out how to do it, but it turns out that it's pretty simple:
+
+```css
+/* initial flash */
+body:has(fieldset:nth-of-type(2) input:checked):has(fieldset:nth-of-type(1) label:nth-of-type(1) input:checked) article:nth-of-type(1) div:nth-of-type(2) {
+    animation: blast 3s;
+}
+```
+
+It's a very long selector, but the important part is that I use 2 `:has()` selectors. In simple terms, I'm basically saying: if the detonator has an input:check AND the one of the control buttons has input:check, add the animation. It's a very easy solution and works like a charm.
+
+After that I wanted to make sure you aren't able to press any of the button while the nuke is being set off, so I used this simple code to do that:
+
+```css
+/* if kaboom button is pressed, you can't press any other buttons */
+body:has(fieldset:nth-of-type(2) input:checked) fieldset:not(:nth-of-type(2)) {
+    pointer-events: none;
+}
+```
+
+### Things left to do:
+
+-   Distance slider fix (container around nuke)
+-   Add smoke ring
+-   Add shockwave sound
+-   Background scenery change (?)
+-   Animate background color
+
+## Week 4
