@@ -188,7 +188,7 @@ body > div:first-of-type {
 
     100% {
         opacity: 1;
-        gap: .5em;
+        gap: 0.5em;
         color: red;
     }
 }
@@ -680,7 +680,7 @@ form {
     /* works in Chrome */
     fieldset:nth-of-type(1) label {
         background-color: green;
-        outline: solid 1em;
+        /* outline: solid 1em; */
 
         transform: scale(0.5);
         --btn-top: #606060;
