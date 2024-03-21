@@ -122,7 +122,7 @@ body > div:first-of-type {
     z-index: 2;
 
     animation: fade-away 3s var(--title-anim-length) ease-in-out both;
-    display: none;
+    /* display: none; */
 
     h1 {
         font-family: 'Bowlby One', sans-serif;
