@@ -111,6 +111,7 @@ body {
 /* ============= */
 
 body > div:first-of-type {
+    container-type: size;
     --title-anim-length: 3s;
     position: absolute;
     top: 0;
@@ -121,20 +122,19 @@ body > div:first-of-type {
     z-index: 2;
 
     animation: fade-away 3s var(--title-anim-length) ease-in-out both;
-    display: none;
+    /* display: none; */
 
     h1 {
         font-family: 'Bowlby One', sans-serif;
         display: flex;
         justify-content: center;
-        position: absolute;
+        position: relative;
         color: white;
-        width: 100%;
         text-align: center;
-        top: 30%;
+        top: 40%;
         font-size: 6vw;
         text-transform: uppercase;
-        text-shadow: 0.1em 0.1em 0 black;
+        text-shadow: 0.1em 0.1em 0 black, 0 0 1em red;
 
         animation: intro var(--title-anim-length) both;
         opacity: 0;
@@ -173,6 +173,12 @@ body > div:first-of-type {
     }
 }
 
+/* @container (width < 600px) {
+    h1 span {
+        font-size: .1em;
+    }
+} */
+
 @keyframes intro {
     0% {
         visibility: visible;
@@ -182,7 +188,7 @@ body > div:first-of-type {
 
     100% {
         opacity: 1;
-        gap: 40px;
+        gap: .5em;
         color: red;
     }
 }
@@ -217,25 +223,11 @@ body > div:first-of-type {
 }
 
 /* ============= */
-/* === stars === */
-/* ============= */
-section:nth-of-type(1) > div {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    aspect-ratio: 1;
-    background: linear-gradient(rgb(0, 0, 0), #0000 20%);
-    /* background-color: #fff2; */
-
-    z-index: -2;
-}
-
-/* ============= */
 /* === bomba === */
 /* ============= */
 
 /* bomb container / window */
-section:first-of-type {
+section:nth-of-type(1) {
     position: relative;
     width: 100%;
     height: 30em;
@@ -277,10 +269,10 @@ article:nth-of-type(1) div:nth-of-type(2) {
 
 /* mushroom cloud container */
 article:nth-of-type(2) {
-    position: relative;
+    position: absolute;
     width: 20em;
     height: 20em;
-    margin: auto;
+    left: calc(50% - 20em / 2);
     z-index: 0;
 
     opacity: 0;
@@ -496,10 +488,20 @@ article:nth-of-type(3) {
 
 /* clouds  ---------------- */
 article:nth-of-type(4) {
+    --width: 50em;
+    position: absolute;
+    /* background-color: blue; */
+    top: 0;
+    left: calc(50% - var(--width) / 2);
+    width: var(--width);
+    height: 10em;
+
     div {
         position: absolute;
         top: calc(1em * var(--v1));
         left: calc(30em * var(--v2));
+        /* top: 1em; */
+        /* left: 50%; */
         width: calc(10em * var(--v3));
         height: 7em;
         border-radius: 100em;
@@ -545,7 +547,7 @@ article:nth-of-type(4) {
 @keyframes cloudscaling {
     0% {
         scale: 0.6;
-        left: calc(25em * var(--v1));
+        left: calc(25em * var(--v1) / var(--v3));
     }
     50% {
         scale: 1;
@@ -553,13 +555,25 @@ article:nth-of-type(4) {
 
     100% {
         scale: 0.6;
-        left: calc(25em * var(--v3));
+        left: calc(3em * var(--v3) / var(--v2));
     }
 }
 
 /* ============================= */
 /* === control panel styling === */
 /* ============================= */
+section:nth-of-type(2) {
+    --test: green;
+    container-type: size;
+    /* position: fixed; */
+    color: rgb(0, 0, 0);
+    background-color: #acb3c6;
+    border-radius: 2em 2em 0 0;
+    max-width: 70em;
+    height: 100vh;
+    /* left: calc(50% - 70em / 2); */
+    margin: 1em auto 0 auto;
+}
 
 form {
     margin: auto;
@@ -625,7 +639,7 @@ form {
         z-index: -1;
     }
 
-    /* nuke control styling */
+    /* nuke control styling firefox */
     fieldset:nth-of-type(1) {
         display: flex;
         flex-wrap: wrap;
@@ -653,6 +667,18 @@ form {
         box-shadow: 0 0 0.4em 3em #0001;
     }
 }
+
+/* @container (width < 600px) {
+    form {
+        background-color: rgb(159, 159, 230);
+    }
+} */
+
+/* @container style(--test: green) {
+    form {
+        background-color: green;
+    }
+} */
 
 body:has(fieldset:nth-of-type(1) label:nth-of-type(1) input:checked) fieldset:nth-of-type(1) label:nth-of-type(1),
 body:has(fieldset:nth-of-type(1) label:nth-of-type(2) input:checked) fieldset:nth-of-type(1) label:nth-of-type(2),
@@ -752,13 +778,4 @@ body:has(fieldset:nth-of-type(2) input:checked) section:nth-of-type(1) article:n
     transition: 1s;
     transition-delay: 1s;
     opacity: 1;
-}
-
-section:nth-of-type(2) {
-    color: rgb(0, 0, 0);
-    background-color: #acb3c6;
-    border-radius: 2em 2em 0 0;
-    max-width: 70em;
-    height: 30em;
-    margin: 1em auto 0 auto;
 }

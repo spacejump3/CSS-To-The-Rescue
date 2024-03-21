@@ -324,3 +324,163 @@ body:has(fieldset:nth-of-type(2) input:checked) fieldset:not(:nth-of-type(2)) {
 -   Animate background color
 
 ## Week 4
+
+### Smoke ring
+The final thing I wanted to add to the nuke was a smoke ring. I wanted to do this so that I could use some 3D stuff for the first time in css. 
+
+```css
+@keyframes smoke-ring {
+    0% {
+        transform: rotateY(0turn) translateZ(6.5em) rotateY(0turn);
+    }
+
+    100% {
+        transform: rotateY(1turn) translateZ(6.5em) rotateY(-1turn);
+    }
+}
+```
+
+```css
+article {
+    --smoke-anim-length: 10s;
+    transform-style: preserve-3d;
+    perspective: 30em;
+    position: absolute;
+
+    background-color: #fff2;
+    left: 70%;
+
+    span {
+        position: absolute;
+        width: calc(3em * var(--v1) * var(--v2) / var(--v3));
+        top: 9em;
+        aspect-ratio: 1;
+        background-color: rgb(57, 63, 82);
+        box-shadow: 0 0 5em #fff5;
+        border-radius: var(--br);
+        animation: smoke-ring var(--smoke-anim-length) calc(var(--smoke-anim-length) * -1 / var(--n) * var(--i)) linear infinite;
+    }
+}
+```
+
+I again used the same technique as the other smoke elements to create this last ring. The only difference is that the animation is 3D. I had to shuffle around some elements in HTML to get this effect working properly, because the smoke ring itself was 3D, but it wouldn't go around the shaft. Instead it'd just stay in front of it. This is because it wasn't a child element of the shaft. So moving the smoke ring inside the shaft did the trick and now the animation is 'truly' 3D.
+
+Source: https://codepen.io/shooft/pen/PogNKdx
+
+![smokering](./readme-media/smokering.png)
+
+### Title animation
+One of the final things I needed to add was a title. Since I forgot to add this in the first place, I didn't have a good place for my title. So I decided to make an intro title animation.
+
+I wanted to control each letter individually, so in HTML I had to create a h1 with a span for each letter inside. This way I'm able to control each letter without affecting the others. So the way I'm animating the intro is by chaining 3 animations, the intro text, the text going away and then the fade-out:
+
+```css
+@keyframes intro {
+    0% {
+        visibility: visible;
+        color: yellow;
+        gap: 0;
+    }
+
+    100% {
+        opacity: 1;
+        gap: .5em;
+        color: red;
+    }
+}
+
+@keyframes text-splode {
+    0% {
+        filter: blur(0);
+    }
+
+    100% {
+        filter: blur(2em);
+        transform: translateY(-10em);
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+@keyframes fade-away {
+    0% {
+        opacity: 1;
+    }
+
+    99% {
+        opacity: 0;
+        scale: 1;
+    }
+
+    100% {
+        opacity: 0;
+        scale: 0;
+    }
+}
+```
+
+To make sure the title animation is gone I scale the entire div down to 0. For some reason using ```display: none;``` does not work.
+
+```css
+body > div:first-of-type {
+    --title-anim-length: 3s;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgb(43, 6, 6);
+    z-index: 2;
+
+    animation: fade-away 3s var(--title-anim-length) ease-in-out both;
+
+    h1 {
+        font-family: 'Bowlby One', sans-serif;
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        color: white;
+        width: 100%;
+        text-align: center;
+        top: 30%;
+        font-size: 6vw;
+        text-transform: uppercase;
+        text-shadow: 0.1em 0.1em 0 black;
+
+        animation: intro var(--title-anim-length) both;
+        opacity: 0;
+
+        span:nth-of-type(1) {
+            animation: text-splode 3s calc(var(--title-anim-length) + 0.2s) ease-in-out both;
+        }
+
+        span:nth-of-type(2) {
+            animation: text-splode 3s calc(var(--title-anim-length) + 1s) ease-in-out both;
+        }
+
+        span:nth-of-type(3) {
+            animation: text-splode 3s calc(var(--title-anim-length) + 0.4s) ease-in-out both;
+        }
+
+        span:nth-of-type(4) {
+            animation: text-splode 3s calc(var(--title-anim-length) + 0.8s) ease-in-out both;
+        }
+
+        span:nth-of-type(6) {
+            animation: text-splode 3s calc(var(--title-anim-length) + 0.9s) ease-in-out both;
+        }
+
+        span:nth-of-type(7) {
+            animation: text-splode 3s calc(var(--title-anim-length) + 0.2s) ease-in-out both;
+        }
+
+        span:nth-of-type(8) {
+            animation: text-splode 3s calc(var(--title-anim-length) + 0.4s) ease-in-out both;
+        }
+
+        span:nth-of-type(9) {
+            animation: text-splode 3s calc(var(--title-anim-length) + 0.1s) ease-in-out both;
+        }
+    }
+}
+```
